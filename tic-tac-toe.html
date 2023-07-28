@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+  
+  .mainbox {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    margin-left: 350px;
+    margin-top: 50px;
+    
+  }
+
+  .box {
+    border: 2px solid black;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bolder;
+    padding: 50px;
+  }
+        
+    </style>
+</head>
+<body>
+    <div class="mainbox">
+<div class="box" id="1" onclick="clickingbox('1')"></div>
+<div class="box" id="2" onclick="clickingbox('2')"></div>
+<div class="box" id="3" onclick="clickingbox('3')"></div>
+<div class="box" id="4" onclick="clickingbox('4')"></div>
+<div class="box" id="5" onclick="clickingbox('5')"></div>
+<div class="box" id="6" onclick="clickingbox('6')"></div>
+<div class="box" id="7" onclick="clickingbox('7')"></div>
+<div class="box" id="8" onclick="clickingbox('8')"></div>
+<div class="box" id="9" onclick="clickingbox('9')"></div>
+</div>
+
+
+
+<script>
+  var win = 0
+    function clickingbox(id){
+     var gamebox = document.getElementById(id);
+     if(gamebox.innerText === ""){
+       win++;
+       gamebox.innerText = win % 2 !== 0 ? "X" : "0"
+  }
+}
+</script>
+</body>
+</html>
