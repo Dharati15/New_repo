@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exponentiation Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 30px;
+    }
+   input{
+    border: 2px solid black;
+    text-align: center;
+   }
+   div{
+   margin-left: -72px;
+    margin-top: 30px;
+  }
+  </style>
+</head>
+<body>
+  
+  <form id="calcForm">
+    
+    <input type="text" id="inputA" required>
+    <input type="text" id="inputB" required>
+    <button onclick="calculate()">Calculate</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    function calculate() {
+      const a = Number(document.getElementById("inputA").value);
+      const b = Number(document.getElementById("inputB").value);
+      let result = 1;
+      for (let i = a; i <= b; i++) {
+        result = result *= b;
+      }
+      document.getElementById("result").innerText = result;
+      document.getElementById("inputA").value = "";
+      document.getElementById("inputB").value = "";
+    }
+
+    
+  </script>
+</body>
+</html>

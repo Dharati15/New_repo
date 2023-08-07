@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<input type="text" id="enter" />
+<button id="submit" onclick="fibonacci()">submit</button>
+<p id="result"></p>
+<script>
+
+    function fibonacci(){
+    var num = document.getElementById("enter").value ;
+    var a = 0;
+    var b = 1;
+   
+    for(let  i = 0; i < num ; i++){
+       var text = document.write(a+",");
+        c = a+b;
+        a = b;
+        b = c;
+     }
+     
+  
+}
+</script>
+</body>
+</html>
