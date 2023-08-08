@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+</head>
+<body>
+    
+    <input type="text" id="input">
+    <button onclick="addinput()">Submit</button>
+    <ul id="list">
+    </ul>
+
+    <script>
+        function addinput() {
+            var inputfield = document.getElementById("input");
+            var outputfield = document.getElementById("list");
+            var newvalue = inputfield.value;
+
+        if (newvalue !== "") {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(newvalue));
+                outputfield.appendChild(li);
+                inputfield.value = ""; 
+            }
+        }
+    </script>
+</body>
+</html>
