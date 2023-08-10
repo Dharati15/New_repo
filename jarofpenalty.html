@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</style>
+</head>
+<body>
+  <p id="input">Current Value: 0</p>   
+  <button id="btn2">+10</button><br>
+  <br>
+  <input type="text" id="addvalue">
+  <button id="btn">Add Custom Value</button>
+
+  <script>
+    
+    var valueDisplay = document.getElementById("input");
+    var incrementButton = document.getElementById("btn2");
+    var customValueInput = document.getElementById("addvalue");
+    var customValueButton = document.getElementById("btn");
+
+    var currentValue = 0;
+
+    
+    function updateDisplay() {
+      valueDisplay.innertext =+ currentValue;
+    }
+
+    
+    incrementButton.addEventListener('click', function() {
+      currentValue += 10;
+      updateDisplay();
+    });
+
+    
+    customValueButton.addEventListener('click', function() {
+      var customValue = parseInt(customValueInput.value);
+      if (!isNaN(customValue)) {
+        currentValue += customValue;
+        updateDisplay();
+      }
+    });
+
+    
+  
+  </script>
+</body>
+</html>
