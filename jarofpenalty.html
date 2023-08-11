@@ -5,42 +5,43 @@
 </style>
 </head>
 <body>
-  <p id="input">Current Value: 0</p>   
-  <button id="btn2">+10</button><br>
-  <br>
-  <input type="text" id="addvalue">
-  <button id="btn">Add Custom Value</button>
-
+  <div>fixvalue: <span id="fixedValue">10</span></div>
+  <p>Current value: <span id="input">0</span></p>
+  
+  <button onclick="addFixedValue()">Add Fixed Penalty</button><br><br> 
+  
+  <input id="newPenalty"/>
+  <button onclick="addPenalty()">Add Penalty</button><br><br>
+  
+  <input id="updatedvalue">
+  <button onclick="newcustomisedvalue()">customisedvalue</button><br><br>
+  
   <script>
     
-    var valueDisplay = document.getElementById("input");
-    var incrementButton = document.getElementById("btn2");
-    var customValueInput = document.getElementById("addvalue");
-    var customValueButton = document.getElementById("btn");
-
     var currentValue = 0;
-
+    var fixedValue = 10;
     
-    function updateDisplay() {
-      valueDisplay.innertext =+ currentValue;
+    function addFixedValue(){
+      document.getElementById("input").innerText = currentValue + fixedValue;
+      currentValue += fixedValue; 
     }
-
     
-    incrementButton.addEventListener('click', function() {
-      currentValue += 10;
-      updateDisplay();
-    });
-
+    function addPenalty(){
+      var newPenalty = Number(document.getElementById("newPenalty").value);
+      document.getElementById("input").innerText = currentValue + newPenalty;
+      currentValue += newPenalty;
+      document.getElementById("newPenalty").value = "";
+    }
     
-    customValueButton.addEventListener('click', function() {
-      var customValue = parseInt(customValueInput.value);
-      if (!isNaN(customValue)) {
-        currentValue += customValue;
-        updateDisplay();
-      }
-    });
-
-    
+    function newcustomisedvalue(){
+      var updatedFixedValue = Number(document.getElementById("updatedvalue").value);
+      document.getElementById("input").innerText = currentValue + updatedFixedValue;
+      // fixedValue += updatedFixedValue
+         fixedValue = updatedFixedValue;
+        document.getElementById("fixedValue").innerText = fixedValue;
+        document.getElementById("updatedvalue").value = "";
+      
+    }
   
   </script>
 </body>
