@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<style>
+  .hidden {
+    display: none;
+  }
+  
 </style>
 </head>
 <body>
-  <div>fixvalue: <span id="fixedValue">10</span></div>
-  <p>Current value: <span id="input">0</span></p>
+  <div id="stage1" class="hidden">
+    <div>fixvalue: <span id="fixedValue">10</span></div>
+    <p>Current value: <span id="input">0</span></p>
+    
+    <button onclick="addFixedValue()">Add Fixed Penalty</button><br><br> 
+    
+    <input id="newPenalty"/>
+    <button onclick="addPenalty()">Add Penalty</button><br><br>
+  </div>
+
+  <div id="stage2">
+    <input id="updatedvalue">
+    <button onclick="newcustomisedvalue()">Set Fixed Value</button><br><br>
+  </div>
   
-  <button onclick="addFixedValue()">Add Fixed Penalty</button><br><br> 
-  
-  <input id="newPenalty"/>
-  <button onclick="addPenalty()">Add Penalty</button><br><br>
-  
-  <input id="updatedvalue">
-  <button onclick="newcustomisedvalue()">customisedvalue</button><br><br>
+ 
   
   <script>
-    
     var currentValue = 0;
     var fixedValue = 10;
-    
+
     function addFixedValue(){
       document.getElementById("input").innerText = currentValue + fixedValue;
       currentValue += fixedValue; 
     }
-    
+
     function addPenalty(){
       var newPenalty = Number(document.getElementById("newPenalty").value);
       document.getElementById("input").innerText = currentValue + newPenalty;
       currentValue += newPenalty;
       document.getElementById("newPenalty").value = "";
     }
-    
+
     function newcustomisedvalue(){
       var updatedFixedValue = Number(document.getElementById("updatedvalue").value);
-      document.getElementById("input").innerText = currentValue + updatedFixedValue;
-      // fixedValue += updatedFixedValue
-         fixedValue = updatedFixedValue;
-        document.getElementById("fixedValue").innerText = fixedValue;
-        document.getElementById("updatedvalue").value = "";
-      
+      fixedValue = updatedFixedValue;
+      document.getElementById("fixedValue").innerText = fixedValue;
+      document.getElementById("updatedvalue").value = "";
+      showStage1(); 
     }
-  
+
+    function showStage1() {
+      document.getElementById("stage1").classList.remove("hidden");
+      document.getElementById("stage2").classList.add("hidden");
+    }
   </script>
 </body>
 </html>
